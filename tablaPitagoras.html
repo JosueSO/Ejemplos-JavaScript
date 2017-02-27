@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabla de Pitágoras</title>
+</head>
+<body>
+    <h3> Tabla de Pitágoras </h3>
+    
+    <script>
+        var tam = parseInt(window.prompt("Tamaño de la tabla:")) + 1;
+        var matriz = new Array(tam);
+        console.log(tam);
+
+        creaTabla();
+        imprimirTabla(matriz);
+
+        function creaTabla ()
+        {
+            for (var i = 0; i < tam; i++)
+            {
+                matriz[i] = new Array(tam);
+            }
+
+            matriz[0][0] = "X";
+            for (var k = 1; k < tam; k++)
+            {
+                matriz[0][k] = k;
+                matriz[k][0] = k;
+            }
+            for (var i = 1; i < tam; i++)
+            {
+                for (var j = 1; j < tam; j++)
+                {
+                    matriz[i][j] = i * j;
+                }
+            }
+        }
+
+        function imprimirTabla (tabla)
+        {
+            document.write('<table>');
+            for (var i = 0; i < tam; i++)
+            {
+                document.write('<tr>');
+                for (var j = 0; j < tam; j++)
+                {
+                    if (i === 0 || j === 0 )
+                        document.write('<td style="border:solid 1px; width:30px; height:30px; text-align:center; background-color:rgb(0,150,210); color:white">');
+                    else
+                        document.write('<td style="border:solid 1px; width:30px; height:30px; text-align:center">');
+                    document.writeln(tabla[i][j]);
+                    document.write('</td>');
+                }
+                document.write('</tr>');
+            }
+            document.write('</table>');
+        }
+    </script>
+</body>
+</html>
