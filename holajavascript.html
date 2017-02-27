@@ -14,17 +14,53 @@
         window.document.write('<h1 style="color: red";>Me gusta JavaScript</h1>');
         window.console.log("Hola consola");
 
-        document.write('<table>');
         var lenguajes = ['HTML', 'CSS', 'JavaScript', 'PHP'];
-        for (var i = 0; i < lenguajes.length; i++)
+        var otros = ['C++', 'Java', 'Python'];
+        //imprimir(lenguajes);
+
+        document.write("Lenguajes: <br>");
+        imprimir(lenguajes);
+        document.write("Otros lenguajes: <br>");
+        imprimir(otros);
+        //Ejemplo de concatenar
+        document.write("Concatenación <br>");
+        imprimir(lenguajes.concat(otros));
+
+        //Ejemplo de join
+        document.write("Lenguajes = " + lenguajes.join('-') +"<br>");
+        document.write("Otros = " + otros.join(' ') +"<br>");
+
+        function imprimir(tabla)
+        {
+            document.write('<table>');
+            //for (var i = 0; i < lenguajes.length; i++)
+            /*for (var x in tabla)
+            {
+                document.write('<tr>');
+                document.write('<td style="border:solid">');
+                document.writeln(x);
+                document.write('</td>');
+                document.write('<td style="border:solid">');
+                document.writeln(tabla[x]);
+                document.write('</td>');
+                document.write('</tr>');
+            }*/
+
+            tabla.forEach(imprimeRenglon);
+            document.write('</table>');
+        }
+
+        function imprimeRenglon(elemento, indice, arreglo)
         {
             document.write('<tr>');
             document.write('<td style="border:solid">');
-            document.writeln(lenguajes[i]);
+            document.writeln(indice);
+            document.write('</td>');
+            document.write('<td style="border:solid">');
+            document.writeln(arreglo[indice]);
             document.write('</td>');
             document.write('</tr>');
         }
-        document.write('</table>');
     </script>
 </body>
 </html>
